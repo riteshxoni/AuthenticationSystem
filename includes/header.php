@@ -11,6 +11,20 @@
         </button>
 
         <!-- Menu -->
+        <?php
+        session_start();
+        if(isset($_SESSION['username'])): ?>
+        <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Welcome <?php echo $_SESSION['username'] ?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../controller/LogoutController.php">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <?php else : ?>
         <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -19,8 +33,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="register.php">Register</a>
                 </li>
-                
             </ul>
         </div>
+        <?php endif; ?>
     </div>
 </nav>
